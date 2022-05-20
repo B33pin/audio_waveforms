@@ -196,7 +196,7 @@ class RecorderController extends ChangeNotifier {
 
   ///sets [shouldClearLabels] flag to false
   void revertClearlabelCall() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       shouldClearLabels = false;
       notifyListeners();
     });
@@ -255,7 +255,7 @@ class RecorderController extends ChangeNotifier {
   ///[Internally] used to set scrolled position
   ///to duration.
   void setScrolledPostionDuration(int duration) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       _currentScrolledDuration.value = duration;
       notifyListeners();
     });
