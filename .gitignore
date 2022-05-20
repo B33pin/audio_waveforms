@@ -8,6 +8,7 @@
 .pub/
 .idea/
 .vscode/
+.fvm/
 build/
 
 # Android related
