@@ -1,5 +1,7 @@
 import AVFoundation
 import Accelerate
+import Foundation
+
 
 public class AudioRecorder: NSObject, AVAudioRecorderDelegate{
     var audioRecorder: AVAudioRecorder?
@@ -17,11 +19,8 @@ public class AudioRecorder: NSObject, AVAudioRecorderDelegate{
         let options: AVAudioSession.CategoryOptions = [.defaultToSpeaker, .allowBluetooth]
         if (path == nil) {
             let directory = NSTemporaryDirectory()
-            let date = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = fileNameFormat
-            let fileName = dateFormatter.string(from: date) + ".aac"
-            
+            let uuid = NSUUID().uuidString
+            let fileName = uuid + ".aac"
             self.path = NSURL.fileURL(withPathComponents: [directory, fileName])?.absoluteString
         } else {
             self.path = path
